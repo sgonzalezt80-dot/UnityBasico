@@ -24,13 +24,14 @@ public class PlayerControl : MonoBehaviour
 
     //componentes
     private Rigidbody2D _rb2D;
-    private PlayerInput _playerInput; 
+    private PlayerInput _playerInput;
+    private Animator _animator;
 
     void Start()
     {
         _rb2D = GetComponent<Rigidbody2D>();
-
-        _playerInput = GetComponent<PlayerInput>(); 
+        _playerInput = GetComponent<PlayerInput>();
+        _animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -46,7 +47,7 @@ public class PlayerControl : MonoBehaviour
             Shoot();
 
         }
-
+        _animator.SetFloat("InputX", _input.x);
     }
 
     private void FixedUpdate()
@@ -59,6 +60,7 @@ public class PlayerControl : MonoBehaviour
         _input = _playerInput.actions["Move"].ReadValue<Vector2>();
         _isRunning = _playerInput.actions["Run"].ReadValue<float>();
         _isShooting = _playerInput.actions["Shoot"].ReadValue<float>();
+
     }
 
     private void ApplySpeed()

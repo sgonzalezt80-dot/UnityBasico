@@ -13,7 +13,7 @@ public class Bullet : MonoBehaviour
     {
         if (collision.tag.Equals("Enemy"))
         {
-            Destroy(gameObject);
+            Destroy(this.gameObject);
         }
     }
 }
