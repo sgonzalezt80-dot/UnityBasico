@@ -29,6 +29,7 @@ public class PlayerControl : MonoBehaviour
 
     void Start()
     {
+        //llamada de componentes
         _rb2D = GetComponent<Rigidbody2D>();
         _playerInput = GetComponent<PlayerInput>();
         _animator = GetComponent<Animator>();
@@ -60,7 +61,6 @@ public class PlayerControl : MonoBehaviour
         _input = _playerInput.actions["Move"].ReadValue<Vector2>();
         _isRunning = _playerInput.actions["Run"].ReadValue<float>();
         _isShooting = _playerInput.actions["Shoot"].ReadValue<float>();
-
     }
 
     private void ApplySpeed()

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2546062315438716374}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -171,4 +171,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAI
   _enemyYSpeed: 3
+  _enemyXSpeed: 3
   _enemyBullet: {fileID: 1314444089678060742, guid: daf39d4267dde2547bf65a217c6847df, type: 3}

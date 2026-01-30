@@ -4,7 +4,9 @@ using UnityEngine.Android;
 public class EnemyAI : MonoBehaviour
 {
     [SerializeField] private float _enemyYSpeed;
+
     [SerializeField] private float _enemyXSpeed;
+
     private float _targetXPosition;
     private float _enemyWith;
     private Vector2 _screenBounds;
@@ -39,6 +41,16 @@ public class EnemyAI : MonoBehaviour
         {
             Instantiate(_enemyBullet, transform.position, transform.rotation);
             _shootTimer = Random.Range(_minTime, _maxTime); 
+        }
+    }
+
+
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {   
+        if (collision.tag.Equals("Border"))
+        {
+            Destroy(this.gameObject);
         }
     }
 }
