@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4705137548170349870}
   - component: {fileID: 871897641233249947}
   - component: {fileID: 2546062315438716374}
+  - component: {fileID: 60233970327235869}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -173,3 +174,17 @@ MonoBehaviour:
   _enemyYSpeed: 3
   _enemyXSpeed: 3
   _enemyBullet: {fileID: 1314444089678060742, guid: daf39d4267dde2547bf65a217c6847df, type: 3}
+--- !u!114 &60233970327235869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6932716875860860726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ada749c8799e45646aa5fd8b6c32e1b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
+  _health: 50
+  _bulletDamage: 10

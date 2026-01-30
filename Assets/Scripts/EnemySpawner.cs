@@ -33,15 +33,8 @@ public class EnemySpawner : MonoBehaviour
     {
         Bounds bounds = _boxColider.bounds;
 
-
-        float _minPos = -1f;
-        float _maxPos = 1f;
-        float _random = Random.Range(_minPos, _maxPos);
-
-
-
-        float randomX = bounds.center.x;
-        float randomY = bounds.min.y;  
+        float randomX = Random.Range(bounds.min.x, bounds.max.x);  
+        float randomY = Random.Range(bounds.min.y, bounds.max.y);
         return new Vector2(randomX, randomY);
     }
 }

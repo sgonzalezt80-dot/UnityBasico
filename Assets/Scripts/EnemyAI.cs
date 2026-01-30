@@ -4,9 +4,7 @@ using UnityEngine.Android;
 public class EnemyAI : MonoBehaviour
 {
     [SerializeField] private float _enemyYSpeed;
-
     [SerializeField] private float _enemyXSpeed;
-
     private float _targetXPosition;
     private float _enemyWith;
     private Vector2 _screenBounds;
@@ -23,8 +21,18 @@ public class EnemyAI : MonoBehaviour
         _shootTimer = Random.Range(_minTime, _maxTime);
 
         //Limites de pantalla 
-        Vector3 screenValues = new Vector3(Screen.width, Screen.height, Camera.main.transform.position.x);
-              // _screenBounds = Camera 
+        Vector3 screenValues = new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z);
+        _screenBounds = Camera.main.ScreenToWorldPoint(screenValues);
+
+        //Tamaño del enemigo
+
+
+
+        _collider2D = GetComponent<Collider2D>();
+
+
+
+
     }
     private void Update()
     {
