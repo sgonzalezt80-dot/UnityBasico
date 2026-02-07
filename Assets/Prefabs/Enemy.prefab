@@ -11,9 +11,8 @@ GameObject:
   - component: {fileID: 3351265000455008444}
   - component: {fileID: 5981265911328161694}
   - component: {fileID: 4705137548170349870}
-  - component: {fileID: 871897641233249947}
   - component: {fileID: 2546062315438716374}
-  - component: {fileID: 60233970327235869}
+  - component: {fileID: -8538722160124149714}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -125,40 +124,13 @@ CapsuleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: -0.018849373, y: 0.06911445}
   m_Size: {x: 1.269177, y: 1.4451046}
   m_Direction: 0
---- !u!50 &871897641233249947
-Rigidbody2D:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6932716875860860726}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!114 &2546062315438716374
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -171,10 +143,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a59cd9adae0b34149bc3253c7905714c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAI
-  _enemyYSpeed: 3
-  _enemyXSpeed: 3
+  _enemyYSpeed: 2
+  _enemyXSpeed: 4
   _enemyBullet: {fileID: 1314444089678060742, guid: daf39d4267dde2547bf65a217c6847df, type: 3}
---- !u!114 &60233970327235869
+--- !u!114 &-8538722160124149714
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -183,8 +155,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 6932716875860860726}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ada749c8799e45646aa5fd8b6c32e1b7, type: 3}
+  m_Script: {fileID: 11500000, guid: 1c3a0df4536d3e243a6dfaa614286b4d, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
+  m_EditorClassIdentifier: Assembly-CSharp::HealthController
   _health: 50
   _bulletDamage: 10

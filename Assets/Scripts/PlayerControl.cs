@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -27,12 +28,18 @@ public class PlayerControl : MonoBehaviour
     private PlayerInput _playerInput;
     private Animator _animator;
 
+
+    HealthController _health; 
+
     void Start()
     {
         //llamada de componentes
         _rb2D = GetComponent<Rigidbody2D>();
         _playerInput = GetComponent<PlayerInput>();
         _animator = GetComponent<Animator>();
+
+
+        _health = GetComponent<HealthController>();
     }
 
     void Update()
@@ -46,7 +53,6 @@ public class PlayerControl : MonoBehaviour
         {
             _shootTimer = 0;
             Shoot();
-
         }
         _animator.SetFloat("InputX", _input.x);
     }
@@ -94,7 +100,6 @@ public class PlayerControl : MonoBehaviour
     {
         if(_isShooting != 0)
         {
-            Debug.Log("Disparando");
             Instantiate(_bullet, transform.position, transform.rotation);
         } 
     }

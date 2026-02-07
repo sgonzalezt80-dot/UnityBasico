@@ -24,6 +24,5 @@ public class BorderManager : MonoBehaviour
         currentPosition.x = Mathf.Clamp(currentPosition.x, -_screenBounds.x + _playerWidth, _screenBounds.x - _playerWidth);
         currentPosition.y = Mathf.Clamp(currentPosition.y, -_screenBounds.y + _playerHeight, _screenBounds.y - _playerHeight);
         transform.position = currentPosition;
-        Debug.Log(currentPosition);
     } 
 }

@@ -38,6 +38,4 @@ public class EnemyHealth : MonoBehaviour
     }
     // Color originalColor = _spriteRenderer.color;
     //_spriteRenderer.color = Color.withe
-
-
 }

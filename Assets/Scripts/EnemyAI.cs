@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Android;
+using UnityEngine.SceneManagement;
 
 public class EnemyAI : MonoBehaviour
 {
@@ -25,20 +26,29 @@ public class EnemyAI : MonoBehaviour
         _screenBounds = Camera.main.ScreenToWorldPoint(screenValues);
 
         //Tamaño del enemigo
-
-
-
         _collider2D = GetComponent<Collider2D>();
+        _enemyWith = _collider2D.bounds.extents.x;
 
-
-
-
+        //posicion inicial
+        SetRandomPosition(); 
     }
     private void Update()
     {
         transform.Translate(Vector3.down * _enemyYSpeed * Time.deltaTime);
 
+        Move(); 
         Shoot();
+    }
+    private void Move()
+    {
+        float speed = _enemyXSpeed * Time.deltaTime;
+        float newXPosicion = Mathf.MoveTowards(transform.position.x, _targetXPosition, speed);
+        transform.position = new Vector3(newXPosicion, transform.position.y, transform.position.z); 
+
+        if(Mathf.Abs(transform.position.x  - _targetXPosition) < 0.1f)
+        {
+            SetRandomPosition(); 
+        }
     }
 
     private void Shoot()
@@ -52,13 +62,25 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
-
+    private void SetRandomPosition()
+    {
+        _targetXPosition = Random.Range(- _screenBounds.x + _enemyWith, _screenBounds.x - _enemyWith);
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
-    {   
+    {
         if (collision.tag.Equals("Border"))
         {
             Destroy(this.gameObject);
+        }
+
+        if (collision.tag.Equals("Player"))
+        {
+            HealthController health = collision.GetComponent<HealthController>();
+            if (health != null)
+            {
+                health.PlayerDamage();
+            }
         }
     }
 }

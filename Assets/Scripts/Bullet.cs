@@ -1,3 +1,4 @@
+using Unity.Hierarchy;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
@@ -7,7 +8,7 @@ public class Bullet : MonoBehaviour
 
     private void Start()
     {
-        _collider = GetComponent<Collider2D>(); 
+        _collider = GetComponent<Collider2D>();
     }
     private void Update()
     {
@@ -16,16 +17,13 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag.Equals("Enemy") && !_collider.tag.Equals("Enemy"))
+        if (collision.tag.Equals("Enemy") && !_collider.tag.Equals("EnemyBullet"))
         {
-
-            EnemyHealth health = collision.GetComponent<EnemyHealth>();
-            if(health != null)
+            HealthController health = collision.GetComponent<HealthController>();
+            if (health != null)
             {
-
                 health.TakeDamage();
             }
-                
 
             Destroy(this.gameObject);
         }
@@ -37,6 +35,21 @@ public class Bullet : MonoBehaviour
         if (collision.tag.Equals("Border"))
         {
             Destroy(this.gameObject);
+        }
+
+        if (collision.CompareTag("EnemyBullet"))
+        {
+            Destroy(this.gameObject);
+        }
+
+
+        if (collision.CompareTag("Player") && !_collider.tag.Equals("Bullet"))
+        {
+            HealthController health = collision.GetComponent<HealthController>();
+            if (health != null)
+            {
+                health.PlayerDamage();
+            }
         }
     }
 }
